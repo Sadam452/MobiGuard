@@ -36,7 +36,10 @@ In the upcoming weeks, we plan to implement Module 2: Theft Detection and Event 
 - [Sadam](https://www.github.com/Sadam452)
 
 ## License
-GNU General Public License (GPL)
+The MIT License (MIT)
 
 ## Acknowledgments
 - [Solidity Documentation](https://docs.soliditylang.org/en/v0.8.25/)
+
+## Feedback
+- Feel free to fork or contact [Mail](mailto:sh23csm2r20@student.nitw.ac.in)
