@@ -1,0 +1,131 @@
+[
+    {
+      "id": 0,
+      "name": "Motorolla G3",
+      "picture": "images/d1.jpeg",
+      "status": "Not Sold",
+      "IMEI": "123456701",
+      "location": "Lisco, Alabama"
+    },
+    {
+        "id": 1,
+        "name": "Motorolla F3",
+        "picture": "images/d2.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456702",
+        "location": "Lisco, Idaho"
+    },
+    {
+        "id": 2,
+        "name": "Redmi 12 Pro",
+        "picture": "images/d3.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456703",
+        "location": "Lisco, Lamba"
+    },
+    {
+        "id": 3,
+        "name": "MI G3",
+        "picture": "images/d4.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456704",
+        "location": "Lisco, Alabama"
+    },
+    {
+        "id": 4,
+        "name": "OnePlus 2",
+        "picture": "images/d5.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456705",
+        "location": "India, Alabama"
+    },
+    {
+        "id": 5,
+        "name": "OnePlus Nord 3",
+        "picture": "images/d6.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456706",
+        "location": "India, Hyderabad"
+    },
+    {
+        "id": 6,
+        "name": "OnePlus Nord 2",
+        "picture": "images/d7.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456707",
+        "location": "India, Lucknow"
+    },
+    {
+        "id": 7,
+        "name": "Sony Xperia 1 III",
+        "picture": "images/d8.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456708",
+        "location": "India, Bangalore"
+    },
+    {
+        "id": 8,
+        "name": "Huawei P40 Pro",
+        "picture": "images/d2.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456709",
+        "location": "India, Gurugram"
+    },
+    {
+        "id": 9,
+        "name": "iPhone 12 Mini",
+        "picture": "images/d3.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456710",
+        "location": "India, West Bengal"
+    },
+    {
+        "id": 10,
+        "name": "Samsung Galaxy Note 20 Ultra",
+        "picture": "images/d4.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456711",
+        "location": "USA, Alabama"
+    },
+    {
+        "id": 11,
+        "name": "Xiaomi Mi 11 Ultra",
+        "picture": "images/d6.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456712",
+        "location": "New Zealand, Perth"
+    },
+    {
+        "id": 12,
+        "name": "OnePlus 9 Pro",
+        "picture": "images/d5.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456713",
+        "location": "New Zealand, Perth"
+    },
+    {
+        "id": 13,
+        "name": "Google Pixel 6 Pro",
+        "picture": "images/d7.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456714",
+        "location": "Australia, Perth"
+    },
+    {
+        "id": 14,
+        "name": "iPhone 13 Pro Max",
+        "picture": "images/d8.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456715",
+        "location": "Unknown"
+    },
+    {
+        "id": 15,
+        "name": "Galaxy S21 Ultra",
+        "picture": "images/d1.jpeg",
+        "status": "Not Sold",
+        "IMEI": "123456716",
+        "location": "Lisco, Alabama"
+    }
+  ]
+  
