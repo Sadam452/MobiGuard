@@ -17,24 +17,6 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script>
-        function register() {
-            var imei = document.querySelector('input[aria-label="Username"]').value;
-            var image = document.querySelector('input[id="basic-url"]').value;
-            var name = document.querySelector('input[placeholder="Device name"]').value;
-            var location = document.querySelector('textarea').value;
-            var status = document.querySelector('input[placeholder="Status - Not Sold"]').value;
-            // var contract = web3.eth.contract(abi).at(address);
-            // contract.registerDevice(imei, image, name, location, status, function(err, res) {
-            //     if (err) {
-            //         console.log(err);
-            //     } else {
-            //         console.log(res);
-            //     }
-            // });
-            alert('Device registered successfully', imei, image, name, location, status);
-        }
-    </script>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -46,21 +28,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-              </li>
+              <a class="nav-link active" aria-current="page" href="index.html">Home |</a>
+            </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="register.html" style="border:1px solid blue;border-radius: 20px; padding:4px; margin-top: 10px;">Register Device</a>
+              <a class="nav-link active" aria-current="page" href="register.html" style="border:1px solid blue;border-radius: 20px; padding:4px; margin-top: 10px;">Register Device |</a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="about.html">About</a>
+              <a class="nav-link active" aria-current="page" href="about.html">About |</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="devices.html">Devices |</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="devicesLost.html">Lost Devices |</a>
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="https://sadam452.github.io/portfolio/">Developer</a>
-            </li>
-            <li>
-
+              <a class="nav-link" href="https://sadam452.github.io/portfolio/">Developer |</a>
             </li>
           </ul>
           <form class="d-flex" role="search">
@@ -83,28 +68,28 @@
       <div style="width: 50%;margin-left: 25%;">
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">@</span>
-        <input type="text" class="form-control" placeholder="IMEI" aria-label="Username" aria-describedby="basic-addon1" required>
+        <input type="text" class="form-control imei" placeholder="IMEI" aria-label="IMEI" aria-describedby="basic-addon1" required>
       </div>
       
       <label for="basic-url" class="form-label">Image url</label>
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon3">https://example.com/ex.png</span>
-        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" required>
+        <input type="text" class="form-control url" aria-describedby="basic-addon3" required>
       </div>
       
       <div class="input-group mb-3">
         <input type="text" class="form-control" placeholder="Status - Not Sold" aria-label="Username" disabled>
-        <span class="input-group-text">Name</span>
-        <input type="text" class="form-control" placeholder="Device name" aria-label="Server" required>
+        <span class="input-group-text">Device Name</span>
+        <input type="text" class="form-control device-name" aria-label="Server" required>
       </div>
       
       <div class="input-group">
         <span class="input-group-text">Location</span>
-        <textarea class="form-control" aria-label="With textarea" required></textarea>
+        <input type="text" class="form-control location" aria-label="With textarea" required>
       </div>
       <div>
         <br>
-        <button type="submit" class="btn btn-primary mb-3">Register</button>
+        <button type="submit" class="btn btn-primary mb-3 register">Register</button>
       </div>
       </div>
       </form>

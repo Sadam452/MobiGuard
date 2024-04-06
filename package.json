@@ -14,5 +14,11 @@
   "license": "ISC",
   "devDependencies": {
     "lite-server": "^2.3.0"
+  },
+  "dependencies": {
+    "caver-js": "^1.11.0",
+    "ethjs-abi": "^0.2.1",
+    "web3": "^4.7.0",
+    "web3-eth-abi": "^4.2.0"
   }
 }

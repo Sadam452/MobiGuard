@@ -1,5 +1,5 @@
-const Adoption = artifacts.require("MobileDevice");
+const MobileDevice = artifacts.require("MobileDevice");
 
 module.exports = function(deployer) {
-  deployer.deploy(Adoption);
+  deployer.deploy(MobileDevice);
 };
