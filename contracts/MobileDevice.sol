@@ -3,8 +3,8 @@ pragma solidity >=0.4.22 <0.9.0;
 // pragma experimental ABIEncoderV2;
 
 contract MobileDevice {
-    address[16] public sold;
-    address[16] public lost;
+    // address[16] public sold;
+    // address[16] public lost;
     uint256 public deviceCount;
 
     struct device {
@@ -12,8 +12,8 @@ contract MobileDevice {
         string imei;
         string location;
         string imageUrl;
-        address sold;
-        address lost;
+        bool sold;
+        bool lost;
         address owner;
         uint deviceId;
     }
@@ -35,8 +35,8 @@ contract MobileDevice {
             imei: imei,
             location: location,
             imageUrl: imageUrl,
-            sold: address(0),
-            lost: address(0),
+            sold: false,
+            lost: false,
             owner: msg.sender,
             deviceId: devices.length
         }));
@@ -45,41 +45,46 @@ contract MobileDevice {
 
 
     function purchase(uint deviceId) public returns (uint) {
-        require(deviceId >= 0 && deviceId <= 15);
-        require(lost[deviceId] != msg.sender);
-        sold[deviceId] = msg.sender;
+        require(deviceId >= 0 && deviceId < devices.length);
+        require(devices[deviceId].lost == false);
+        devices[deviceId].sold = true;
+        devices[deviceId].owner = msg.sender;
+        // sold[deviceId] = msg.sender;
         return deviceId;
     }
 
-    function getDevice() public view returns (address[16] memory) {
-        return sold;
-    }
+    // function getDevice() public view returns (address[16] memory) {
+    //     return sold;
+    // }
 
     function markLost(uint deviceId) public {
-        require(deviceId >= 0 && deviceId <= 15);
-        require(sold[deviceId] == msg.sender);
-        sold[deviceId] = address(0);
-        lost[deviceId] = msg.sender;
+        // require(deviceId >= 0 && deviceId <= 15);
+        require(deviceId >=0 && deviceId < devices.length);
+        require(devices[deviceId].sold == true);
+        require(devices[deviceId].owner == msg.sender);
+        devices[deviceId].lost = true;
+        // sold[deviceId] = address(0);
+        // lost[deviceId] = msg.sender;
     }
 
-    function getLost() public view returns (address[16] memory) {
-        return lost;
-    }
+    // function getLost() public view returns (address[16] memory) {
+    //     return lost;
+    // }
 
     function isDeviceLost(uint256 deviceId) public view returns (bool) {
-        return lost[deviceId] != address(0);
+        return devices[deviceId].lost == true;
     }
 
     function isDeviceSold(uint256 deviceId) public view returns (bool) {
-        return sold[deviceId] != address(0);
+        return devices[deviceId].sold == true;
     }
     
     function device_Count() public view returns (uint256) {
         return deviceCount;
     }
 
-    function getRDevice(uint index) public view returns (string memory, string memory, string memory, string memory) {
-        return (devices[index].name, devices[index].imei, devices[index].location, devices[index].imageUrl);
+    function getRDevice(uint index) public view returns (string memory, string memory, string memory, string memory, bool, bool) {
+        return (devices[index].name, devices[index].imei, devices[index].location, devices[index].imageUrl, devices[index].sold, devices[index].lost);
     }
     // return registered devices encoded as caver.abi.encodeParameters. dont't use encodePacked(). use caver.abi.encodeParameters
     function getRegisteredDevices() public view returns (bytes memory) {
