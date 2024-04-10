@@ -83,6 +83,7 @@ App = {
     $(document).on('click', '.register', App.handleRegister);
     $(document).on('click', '.show-devices', App.showDevicesInit);
     $(document).on('click', '.show-lost-devices', App.initLostDevices);
+    $(document).on('click', '.btn-login', App.loginUser);
   },
 
   initListDevices: function() {
@@ -218,6 +219,10 @@ App = {
 
   handlePurchase: function(event) {
     event.preventDefault();
+    //if localStorage is empty redirect to login page
+    if(localStorage.getItem('username') === null){
+      window.location = 'login.html';
+    }
 
     var deviceId = parseInt($(event.target).data('id'));
 
@@ -232,7 +237,7 @@ App = {
       App.contracts.MobileDevice.deployed().then(function(instance) {
         adoptionInstance = instance;
         // Purchase the device
-        return adoptionInstance.purchase(deviceId, { from: account });
+        return adoptionInstance.purchase(deviceId, localStorage.getItem('username'), { from: account });
       }).then(function(result) {
         console.log("Device purchased:", result);
         // Update UI to mark the device as sold
@@ -247,6 +252,10 @@ App = {
 
   handleReportLoss: function(event) {
     event.preventDefault();
+    //if localStorage is empty redirect to login page
+    if(localStorage.getItem('username') === null){
+      window.location = 'login.html';
+    }
 
     var deviceId = parseInt($(event.target).data('id'));
 
@@ -261,7 +270,7 @@ App = {
         App.contracts.MobileDevice.deployed().then(function(instance) {
             adoptionInstance = instance;
             // Mark the device as lost
-            return adoptionInstance.markLost(deviceId, { from: account });
+            return adoptionInstance.markLost(deviceId,localStorage.getItem('username'), { from: account });
         }).then(function(result) {
             console.log("Device marked as lost:", result);
             // Update UI to mark the device as lost
@@ -398,6 +407,45 @@ showDevices: function(i) {
     }).catch(function(err) {
         alert("Error getting devices. Please try again.");
         console.error("Error getting devices ", err.message);
+    });
+  },
+
+  loginUser: function(event) {
+    event.preventDefault();
+    var username = document.querySelector('.username').value;
+    var password = document.querySelector('.password').value;
+    //if value empty return
+    if(username === "" || password === ""){
+      alert("Please enter username and password");
+      return;
+    }
+    console.log("Received values: "+" "+username+" "+password);
+
+    var adoptionInstance;
+    web3.eth.getAccounts(function(error, accounts) {
+      if (error) {
+          console.error(error);
+      }
+
+      var account = accounts[0];
+      App.contracts.MobileDevice.deployed().then(function(instance) {
+          adoptionInstance = instance;
+          console.log("called login user");
+          return adoptionInstance.loginUser(username, password, { from: account });
+      }).then(function(result) {
+          console.log("User logged in:", result);
+          if(result === true){
+            window.location = 'home.html';
+            //save the session
+            localStorage.setItem('username', username);
+          }else{
+            alert("Invalid username or password");
+          }
+          // alert("User logged in successfully");
+      }).catch(function(err) {
+        alert("Error logging in. Please try again.");
+          console.error("Error logging in.", err.message);
+      });
     });
   },
 

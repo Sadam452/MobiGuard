@@ -30,9 +30,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="index.html">Home |</a>
             </li>
-            <li>
-              <a class="nav-link active home" aria-current="page" href="home.html">User Home |</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="register.html" style="border:1px solid blue;border-radius: 20px; padding:4px; margin-top: 10px;">Register Device |</a>
             </li>
@@ -68,20 +65,7 @@
         </div>
       </div>
     </nav>
-    <table class="table table-striped" style="width:50%; margin-left:25%;">
-      <tr>
-        <td>Name</td>
-      <td>Roll No</td>
-      <td>Dept</td>
-      <td>Branch</td>
-      </tr>
-      <tr>
-        <td>Sadam H. ganie</td>
-      <td>23CSM2R20</td>
-      <td>CSE</td>
-      <td>CSIS</td>
-      </tr>
-    </table>
+
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
@@ -91,15 +75,22 @@
         </div>
       </div>
       <div class="alert alert-danger" id="show-alert" style="display: block" role="alert">
-        There is no device to show. Register the devices first then come back.
+        There is no device to show. purchase the devices first then come back.
+      </div>
+      <div class="alert alert-success" id="loc" style="display: none;">
+        <div class="row">
+          <div class="col-6 col-md-4" id="lat">Latitude</div>
+          <div class="col-6 col-md-4" id="lon">Longitude</div>
+          <div class="col-6 col-md-4"><a class="btn btn-primary btn-direct" id="map" href="">Google Map Navigation</a></div>
+        </div>
       </div>
 
-      <div id="petsRow" class="row">
+      <div id="homeRow" class="row">
         <!-- devices LOAD HERE -->
       </div>
     </div>
 
-    <div id="petTemplate" style="display: none;">
+    <div id="homeTemplate" style="display: none;">
       <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="panel panel-default panel-pet">
           <div class="panel-heading">
@@ -111,9 +102,11 @@
             <strong>Status</strong>: <span class="status">Golden Retriever</span><br/>
             <strong>IMEI</strong>: <span class="imei">3</span><br/>
             <strong>Location</strong>: <span class="location">Warren, MI</span><br/><br/>
-            <button class="btn btn-success btn-purchase" type="button" data-id="0">Purchase</button>
-            <button class="btn btn-danger btn-report" type="button" data-id="0" disabled>Report Theft</button>
+            <!-- <button class="btn btn-success btn-purchase" type="button" data-id="0">Purchase</button> -->
+            <button class="btn btn-danger btn-report" type="button" data-id="0">Report Theft</button>
+            <button class="btn btn-secondary btn-transfer" type="button" data-id="0">Transfer Ownership</button>
             <button class="btn btn-danger btn-dummy" type="button" data-id="0" style="display: none" disabled>Theft Marked</button>
+            <button class="btn btn-primary btn-fetch" type="button" data-id="0" style="display: none">Fetch Location</button>
           </div>
         </div>
       </div>
@@ -127,7 +120,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/web3.min.js"></script>
     <!-- <script src="js/truffle-contract.js"></script> -->
-    <script src="js/app.js"></script>
+    <script src="js/app_home.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
@@ -138,13 +131,13 @@
         $('a[href="login.html"]').hide();
         // $('a[href="register.html"]').hide();
         $('a[href="logout.html"]').show();
-        $('a[href="home.html"]').show();
       } else {
         $('a[href="login.html"]').show();
         // $('a[href="register.html"]').show();
         $('a[href="logout.html"]').hide();
-        $('a[href="home.html"]').hide();
       }
+      
+
     </script>
     
   </body>

@@ -17,6 +17,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -29,9 +30,6 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="index.html">Home |</a>
-            </li>
-            <li>
-              <a class="nav-link active home" aria-current="page" href="home.html">User Home |</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="register.html" style="border:1px solid blue;border-radius: 20px; padding:4px; margin-top: 10px;">Register Device |</a>
@@ -46,16 +44,6 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="devicesLost.html">Lost Devices |</a>
             </li>
-
-            <li>
-              <!-- show logout option only when localStorage os 'username' is set -->
-              <!-- logout-->
-              <a class="nav-link active" aria-current="page" href="logout.html">Logout |</a>
-            </li>
-
-            <li>
-              <a class="nav-link active" aria-current="page" href="login.html">Login |</a>
-            </li>
             
             <li class="nav-item">
               <a class="nav-link" href="https://sadam452.github.io/portfolio/" title="External site">Developer |</a>
@@ -68,55 +56,27 @@
         </div>
       </div>
     </nav>
-    <table class="table table-striped" style="width:50%; margin-left:25%;">
-      <tr>
-        <td>Name</td>
-      <td>Roll No</td>
-      <td>Dept</td>
-      <td>Branch</td>
-      </tr>
-      <tr>
-        <td>Sadam H. ganie</td>
-      <td>23CSM2R20</td>
-      <td>CSE</td>
-      <td>CSIS</td>
-      </tr>
-    </table>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-8 col-sm-push-2">
-          <h1 class="text-center">Mobile Theft Detection</h1>
-          <hr/>
-          <br/>
-        </div>
-      </div>
-      <div class="alert alert-danger" id="show-alert" style="display: block" role="alert">
-        There is no device to show. Register the devices first then come back.
-      </div>
 
-      <div id="petsRow" class="row">
-        <!-- devices LOAD HERE -->
-      </div>
-    </div>
-
-    <div id="petTemplate" style="display: none;">
-      <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="panel panel-default panel-pet">
-          <div class="panel-heading">
-            <h3 class="panel-title">Scrappy</h3>
-          </div>
-          <div class="panel-body">
-            <img alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="width: 100%;" src="https://animalso.com/wp-content/uploads/2017/01/Golden-Retriever_6.jpg" data-holder-rendered="true">
-            <br/><br/>
-            <strong>Status</strong>: <span class="status">Golden Retriever</span><br/>
-            <strong>IMEI</strong>: <span class="imei">3</span><br/>
-            <strong>Location</strong>: <span class="location">Warren, MI</span><br/><br/>
-            <button class="btn btn-success btn-purchase" type="button" data-id="0">Purchase</button>
-            <button class="btn btn-danger btn-report" type="button" data-id="0" disabled>Report Theft</button>
-            <button class="btn btn-danger btn-dummy" type="button" data-id="0" style="display: none" disabled>Theft Marked</button>
-          </div>
+    <div class="container" style="margin-left: 25%; width: 50%;">
+    <h1>Login</h1> <hr>
+    <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control username" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-      </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control password" id="exampleInputPassword1" required>
+        </div>
+        <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+          <label class="form-check-label" for="exampleCheck1">Remember me?</label><br>
+          Haven't created account yet? <a href="registerUser.html">Register</a>
+        </div>
+       
+        <button type="submit" class="btn btn-primary btn-login">Login</button>
+    </form>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -132,20 +92,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@truffle/contract@4.3.5/dist/truffle-contract.js"></script>
-    <script>
-      // show login and logout link based on if localStorage is eet
-      if(localStorage.getItem('username')) {
-        $('a[href="login.html"]').hide();
-        // $('a[href="register.html"]').hide();
-        $('a[href="logout.html"]').show();
-        $('a[href="home.html"]').show();
-      } else {
-        $('a[href="login.html"]').show();
-        // $('a[href="register.html"]').show();
-        $('a[href="logout.html"]').hide();
-        $('a[href="home.html"]').hide();
-      }
-    </script>
-    
+
   </body>
 </html>
