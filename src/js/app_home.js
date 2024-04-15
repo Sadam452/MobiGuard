@@ -42,6 +42,8 @@ App = {
       });
   
       // Bind events
+      //set localStorage.getItem('username') to div with id=username
+      document.getElementById('username').innerHTML += localStorage.getItem('username');
       return App.bindEvents();
     },
   
