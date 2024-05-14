@@ -35,6 +35,9 @@ In the upcoming weeks, we plan to implement Module 2: Theft Detection and Event 
 ## Contributors
 - [Sadam](https://www.github.com/Sadam452)
 
+## Project Report
+- Access the detailed project report [here](/Project%20Report.pdf)
+
 ## License
 The MIT License (MIT)
 
